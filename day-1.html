@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8"> <!-- Universel caracters encoding -->
+        <meta name="author" content="Chatbi Mustapha">
+        <meta name="description" content="this is the full description of this webpage. ">
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://developer.mozilla.org/static/img/favicon114.d526f38b09c5.png"> <!-- favicon #short for favorite icon -->
+
+        <link rel="stylesheet" href="style.css"> <!-- linking CSS File -->
+        <title>Day 01</title>
+    </head>
+    <body>
+        <h1 id="heading">Day 01</h1>
+        <p>Block level element</p>
+        <em>inline level element</em>
+        <em>-another inline level element</em>
+
+        <h3>
+            Nesting Elements
+        </h3>
+
+        <p> this is how <em>nested elements work</em> , <i>even though,</i> <b>even though</b> </p>
+
+        <h3>Attributes</h3>
+        <p class="attribute">this element contain a class attributes</p>
+        <!--below these are boolean attributes ( one of the twos)    <comment> <p></p> -->
+        <input type="text">
+        <input type="text" disabled="disabled">
+        <input type="text"  disabled>
+        
+
+        <!-- AnaTomy OF HTML DOCUMENT !!! 
+        <!DOCTYPE html>
+        <html>
+            <head>
+                Metadata like title - meta  - include other files
+            </head>
+            <body>
+                Content : WHat should be visible on the page should be here :) 
+            </body>
+
+        </html>
+        
+        
+        -->
+
+        <h3>Caracters REference </h3>
+        <p >&lt;</p> <!-- > -->
+        <p>&gt;</p> <!-- < -->
+        <p>&amp;</p> <!-- & -->
+        <p>&quot;</p> <!-- " -->
+        <p>&apos;</p> <!-- ' --> 
+
+        <p>Japanese example: ご飯が熱い。</p>
+
+
+
+        <h3>Open Graph Data ( metadata properties ) </h3>
+        <p>it is an attribute added to  metadata element to give a page extra information to show in sites such as social networks</p>
+        
+       <!--
+        this is for Facebook http://ogp.me/ ///// there is also for TWITTER CARD 
+           <meta property="og:image" content="https://developer.cdn.mozilla.net/static/img/opengraph-logo.dc4e08e2f6af.png">
+           <meta property="og:description" content="The Mozilla Developer Network (MDN) provides
+           information about Open Web technologies including HTML, CSS, and APIs for both Web sites
+           and HTML5 Apps. It also documents Mozilla products, like Firefox OS.">
+           <meta property="og:title" content="Mozilla Developer Network">>
+
+        -->
+
+        <img src="day-1.png" alt="">
+           
+        <p>you can also set part of document as Japanese language : <span lang="ja">ご飯が熱い</span></p>
+
+
+
+
+        <h3>Basic Text Formating</h3>
+        <1>that is high level heading</1>
+        <p>p heading exist from h1 to h6</p>
+
+        <p>Lorem ipsum  <em>dolorooo</em> dolor sit <strong> amet consectur adipisicing</strong> amet consectetur adipisicing elit. Assumenda laudantium accusamus <i>italic</i> , <b>bold</b> , <u>underlined</u> officia eos beatae culpa aut ipsum! Nostrum commodi itaque optio soluta voluptatem tempora nobis molestias assumenda aliquam. Possimus, hic.</p>
+
+        <h5>ordered list</h5>
+        <ol>
+            <li>list iteem</li>
+            <li>list iteem</li>
+            <li>list iteem</li>
+            <li>list iteem</li>
+
+        </ol>
+
+        <h5>unordered list</h5>
+        <ul>
+            <li>list item </li>
+            <li>list item </li>
+            <li>list item </li>
+        </ul>
+
+        <h5>nested lists</h5>
+        <ol>
+            <li>list item</li>
+            <li>list item
+                <ul>
+                    <li>list item nested</li>
+                    <li>list item nested</li>
+                    <li>list item nested</li>
+                    <li>list item nested</li>
+                </ul>
+            </li>
+            <li>list item</li>
+        </ol>
+
+        <h3>hyperlinks</h3>
+        <p >I am creating a link to <a title="the best place to find html - css - javascript references " href="https://developer.mozilla.org/en-US"> MDN homepage</a></p>
+
+
+        <h3 id="linkingToFiles">Linking to files</h3>
+        <p>link to file in same folder <a href="file.html">file</a> </p>
+        <p>link to file in child folder <a href="childFolder/file2.html">file2</a> </p>
+        <p>link to file in parent folder <a href="../parentFolder/file3.html">file3</a> </p>
+
+        <p>Document FRagment : link to a section <a href="day-1.html#linkingToFiles">section</a> </p>
+        <p>Document Fragment : link to heading <a href="day-1.html#heading">h1 heading</a> </p>
+
+        <h3>download attributes</h3>
+        <p>use download attribute to provide a default save filename <a href="day-1.PNG" download="file.txt">donwload file</a></p>
+
+        <h3>email links</h3>
+        <p>this is an <a href="emailto:chatbimdev@gmail.com">email</a> </p>
+
+
+        <script src="app.js"></script><!-- linking JAVASCRIPT FILE -->
+    </body>
+</html>
