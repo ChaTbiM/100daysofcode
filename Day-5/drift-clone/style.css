@@ -1,0 +1,98 @@
+
+* { 
+   
+    box-sizing: border-box;
+}
+
+html {
+   height: 100vh;
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+}
+
+.clear , .clear::after , .clear::before {
+    clear: both;
+    content : '';
+    display: table;
+}
+
+.nav { 
+    padding: 1rem;
+    /* css-tricks equidistant objects */
+    /* cool technique to spread children to both sides :)  */ 
+    text-align: justify;
+}
+
+/* continuation of the method */
+.nav:after {
+    content: '';
+    width: 100%;
+    display: inline-block;
+}
+
+.logo {
+   display: inline-block;
+   vertical-align: middle;
+   /* width: 36%; */
+}
+
+
+
+.nav__list {
+display: inline-block;
+vertical-align: middle;
+margin-right: 1rem;
+color: black;
+font-weight: bold;
+}
+
+
+.nav__list__item {
+ display: inline-block; 
+
+}
+
+.nav__list__item__link , 
+.drop {
+    padding: .618rem;
+    vertical-align: middle;
+
+}
+
+.nav__list__item__link { 
+    text-decoration: none;
+    color: black;
+}
+
+.nav__list__item__link:link {
+
+}
+
+.nav__list__item__link:visted {
+
+}
+
+.nav__list__item__link:hover {
+    border: solid 2px black;
+   color: rgb(68, 67, 67);
+}
+
+ 
+.last__link:hover {
+    color: rgb(83, 83, 83);
+}
+.last__link{
+    font-weight: normal;
+    color: rgb(44, 44, 44);
+}
+.nav__list__item__link:active {
+
+}
+
+.fas { 
+    vertical-align: top;
+}
+
+.outlined {
+    border: solid 2px black;
+}
