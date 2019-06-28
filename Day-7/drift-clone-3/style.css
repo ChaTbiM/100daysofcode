@@ -10,7 +10,41 @@ html {
     font-size: 14px;
 }
 
+/* Clearfix */ 
+.cf:before,
+.cf:after {
+  content: " "; /* 1 */
+  display: table; /* 2 */
+}
 
+.cf:after {
+  clear: both;
+}
+
+/*
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+.cf {
+  zoom: 1;
+}
+
+/* Multi Line Clamping Text ( truncation ) */
+
+.line__clamp {
+    display: block;
+    display: -webkit-box;
+    
+    margin: 0 auto;
+    
+    line-height: 1.4;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;  
+}
+
+/* NAVIGATION *********************************************** */ 
 .nav { 
     padding: 1rem;
     /* css-tricks equidistant objects */
@@ -25,12 +59,12 @@ html {
     display: inline-block;
 }
 
-.logo {
-   display: inline-block;
-   vertical-align: middle;
-   /* width: 36%; */
-}
 
+.logo {
+    display: inline-block;
+    vertical-align: middle;
+    /* width: 36%; */
+ }
 
 
 .nav__list {
@@ -92,40 +126,57 @@ font-weight: bold;
     border: solid 2px black;
 }
 
-/* main */ 
 
-/*article */ 
+
+/* main *****************************************/ 
+
+/*article //////////////// */ 
 .article { 
-    width: 60%;
+    width: 48%;
     margin: 0 auto;
     
 }
 
-.article__image { 
-    width: 100%;
-    height: 350px;
+/*header //////////////// */ 
+.author__picture {
+    border-radius: 100px;
+   
+    vertical-align: middle;
+}
+.author__right {
+    display: inline-block;
+    vertical-align: middle;
 }
 
-.article__cnt {
-    
-}
-
-.article__short__content {
-  
- 
-}
-
-/* Multi Line Clamping Text ( truncation ) */
-
-.line__clamp {
+.article__author__name { 
     display: block;
-    display: -webkit-box;
-    
-    margin: 0 auto;
-    
-    line-height: 1.4;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;  
 }
+
+.article__date { 
+    display: inline-block;
+}
+
+.article__tags,
+.article__tags__list ,
+.article__tags__list__item{
+    display: inline-block;
+}
+
+/* article container //////////////// */ 
+
+.img__cnt {
+    overflow: hidden;
+    height: 0;
+    padding-top: 50%;
+    position: relative;
+}
+.article__image { 
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
+
