@@ -46,7 +46,7 @@ html {
 
 /* NAVIGATION *********************************************** */ 
 .nav { 
-    padding: 1rem;
+    padding: 1.4rem;
     /* css-tricks equidistant objects */
     /* cool technique to spread children to both sides :)  */ 
     text-align: justify;
@@ -133,38 +133,72 @@ font-weight: bold;
 /*article //////////////// */ 
 .article { 
     width: 48%;
-    margin: 0 auto;
+    margin: 4rem auto;
     
 }
 
 /*header //////////////// */ 
 .author__picture {
     border-radius: 100px;
-   
-    vertical-align: middle;
+   margin-right: 1rem;
+    vertical-align: top;
 }
 .author__right {
     display: inline-block;
-    vertical-align: middle;
+    vertical-align: top;
 }
 
 .article__author__name { 
     display: block;
+    color: #333;
+    font-size: 1.15rem;
+    font-weight: 300;
+    text-decoration: none;
+    line-height: 1.7rem;
 }
 
 .article__date { 
     display: inline-block;
+    text-decoration: none;
+    font-size: 1rem;
+    color: #333;
+    margin-top: .4rem;
+    line-height: 1.7rem;
+    margin-right: 2.1rem;
+    vertical-align: baseline;
 }
 
-.article__tags,
-.article__tags__list ,
-.article__tags__list__item{
+.article__tags{
     display: inline-block;
+     vertical-align: baseline;
 }
 
+.article__tags::before {
+    content: "\00B7";
+    font-size: 3rem;
+    vertical-align: bottom;    
+    color: #333;
+    line-height: 1.7rem;
+}
+
+.tag {
+    text-decoration: none;
+    color: black;
+    line-height: 1.7rem;
+    font-weight: 300;
+    line-height: 1.7rem;
+}
 /* article container //////////////// */ 
 
+.article__header {
+    font-size: 3.7rem;
+    font-weight: bold;
+    margin-top: 2.5rem;
+    line-height: 3.6rem;
+}
+
 .img__cnt {
+    margin-top: 2rem;
     overflow: hidden;
     height: 0;
     padding-top: 50%;
@@ -177,6 +211,48 @@ font-weight: bold;
     width: 100%;
     height: 100%;
 }
+
+.article__short__content { 
+    margin-top: 1.5rem;
+    font-weight: 300;
+    line-height: 1.5;
+    font-size: 2rem;
+}
+
+.article__continue {
+    display: inline-block;
+    text-transform: uppercase;
+    color: #0176FF;
+    text-decoration: none;
+    vertical-align: middle;   
+    margin-top: .7rem;
+    padding: .7rem 1.4rem;
+    border: solid 1px #0176FF;
+    
+}
+
+.article__continue:hover {
+   background-color: #0176FF;
+   color: white;
+   text-decoration: underline;
+   
+}
+
+.arrow__right {
+    
+    margin-top: -2.5px; 
+    display: inline-block;
+    
+   
+   vertical-align: middle;   
+}
+
+.arrow__right::before {
+    
+    vertical-align: middle;
+}
+
+
 
 
 
