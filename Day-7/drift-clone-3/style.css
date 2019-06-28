@@ -9,14 +9,7 @@ html {
     font-family: 'Lato', sans-serif;
     font-size: 14px;
 }
-body {
-    height: 150vh;
-}
-.clear , .clear::after , .clear::before {
-    clear: both;
-    content : '';
-    display: table;
-}
+
 
 .nav { 
     padding: 1rem;
