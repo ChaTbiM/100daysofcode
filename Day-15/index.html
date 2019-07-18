@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="chatbi mustapha">
+    <meta name="description" content="save your books in a list">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Books List App</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+
+</head>
+<body>
+
+    <main class="container">
+        <h1 class="heading"> Add a Book</h1>
+        <form action="post">
+            
+            <label for="title">Book title</label>
+            <input type="text" class="u-full-width">
+
+            <label for="author">Author</label>
+            <input type="text" class="u-full-width">
+
+            <label for="isbn">isbn</label>
+            <input type="text" class="u-full-width">
+
+            <button class="button-primary" type="submit" value="submit book">+Add book</button>
+        </form>
+
+        <table class="u-full-width">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>ISBN</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>example</td>
+                    <td>example</td>
+                    <td>example</td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>

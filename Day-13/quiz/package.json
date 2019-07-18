@@ -11,6 +11,7 @@
     "bootstrap": "^4.3.1",
     "bootstrap-vue": "^2.0.0-rc.26",
     "core-js": "^2.6.5",
+    "lodash": "^4.17.14",
     "vue": "^2.6.10"
   },
   "devDependencies": {
@@ -32,7 +33,7 @@
       "eslint:recommended"
     ],
     "rules": {
-      "no-console":0
+      "no-console": 0
     },
     "parserOptions": {
       "parser": "babel-eslint"
