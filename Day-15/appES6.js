@@ -1,18 +1,21 @@
 // BOOk constructor
-function Book(title,author,isbn){
-    this.title = title;
-    this.author = author;
-    this.isbn = isbn; 
+// Es6
+class Book{
+    constructor(title,author,isbn){
+        this.title = title; 
+        this.author = author;
+        this.isbn = isbn;
+    }
+}
 
-};
 
 
 // UI Constructor 
+// ES6 
+class UI{
 
-function UI(){};
-
-UI.prototype.addBookToList = function(book){
-    const list = document.getElementById('book-list');
+    addBookToList(book){
+        const list = document.getElementById('book-list');
 
     const tr = document.createElement('tr');
     tr.innerHTML = ` <td>${book.title}</td>
@@ -21,12 +24,12 @@ UI.prototype.addBookToList = function(book){
     <td><a href="#" class='delete'>X</a></td> `;
     
     list.append(tr);
-}
 
- let timeOutId = 0; 
+    this.saveToLocal();
+    }
 
-UI.prototype.showAlert = function( message , className ){
-     let exist = document.querySelector('.error');
+    showAlert(message,className){
+        let exist = document.querySelector('.error');
 
      if(exist && timeOutId ){
          exist.remove();
@@ -51,19 +54,80 @@ UI.prototype.showAlert = function( message , className ){
         timeOutId = setTimeout(() => {
                document.querySelector(`.${className}`).remove();
             }, 3000);
-}
-
-UI.prototype.deleteBook = function(target){
-    if(target.className = 'delete'){
-        target.parentElement.parentElement.remove();
     }
+
+
+    deleteBook(target){
+        if(target.className = 'delete'){
+            target.parentElement.parentElement.remove();
+          
+        }
+
+        this.removeFromLocal(target.parentElement.previousElementSibling.textContent)
+        // console.log(target.parentElement.previousElementSibling.textContent)
+    }
+
+    clearFields(){
+        document.getElementById('title').value = '';
+        document.getElementById('author').value = '';
+        document.getElementById('isbn').value = '';
+    }
+
+    // Local Storage
+    initFromLocal(){
+        // get saved books from local storage if exist !
+        if(!(localStorage.length === 0)){
+            // there is books in local storage update the UI
+            const data = JSON.parse(localStorage.getItem('booksList'));
+           
+            data.forEach(element => {
+                this.addBookToList(element);
+            });
+
+        }
+
+    }
+
+
+    saveToLocal(){
+        const list = document.getElementById('book-list');
+        const data = [];
+        for(let i = 0 ; i < list.children.length; i++){
+            const item = {};
+
+            item.title = list.children[i].children[0].textContent;
+            item.author = list.children[i].children[1].textContent;
+            item.isbn = list.children[i].children[2].textContent;
+
+            data.push(item);
+        }
+        
+        localStorage.setItem('booksList', JSON.stringify(data));
+        
+    }
+
+
+    removeFromLocal(isbnTarget){
+        const data = JSON.parse(localStorage.getItem('booksList'));
+       
+        data.forEach((element , index)=>{
+            if(element.isbn === isbnTarget){
+                data.splice(index,1);
+            }
+        })
+        
+        this.saveToLocal(data);
+
+    }
+
+
 }
 
-UI.prototype.clearFields = function(){
-    document.getElementById('title').value = '';
-    document.getElementById('author').value = '';
-    document.getElementById('isbn').value = '';
-}
+ let timeOutId = 0; 
+
+
+
+
 
 
 //  Event Listeners 
@@ -109,6 +173,15 @@ document.getElementById('book-list').addEventListener('click',function(e){
 
     // Show Alert
     ui.showAlert('Book Removed !', 'success');
+
+    e.preventDefault();
+})
+
+document.addEventListener('DOMContentLoaded', function(e){
+
+    const ui = new UI();
+
+    ui.initFromLocal();
 
     e.preventDefault();
 })
