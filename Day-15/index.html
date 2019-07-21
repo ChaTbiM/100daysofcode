@@ -9,13 +9,27 @@
     <title>Books List App</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
-
+    <style>
+        .success 
+        , .error {
+            color: white;
+            padding: 5px;
+            margin: 5px 0 15px 0;
+        }
+        .success {
+            background-color: green;
+        }
+        .error {
+            background-color: red;
+        }
+        
+    </style>
 </head>
 <body>
 
     <main class="container">
         <h1 class="heading"> Add a Book</h1>
-        <form action="post">
+        <form action="post" id="form">
             
             <label for="title">Book title</label>
             <input type="text" id="title" class="u-full-width">
@@ -37,17 +51,19 @@
                     <th>ISBN</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="book-list">
                 <tr>
-                    <td>example</td>
-                    <td>example</td>
-                    <td>example</td>
-                    <td><a href="#">X</a></td>
+                    <td>title</td>
+    <td>${book.author}</td>
+    <td>${book.isbn}</td>
+    <td><a href="#" class='delete'>X</a></td>
                 </tr>
             </tbody>
         </table>
     </main>
 
-    <script src="app.js"></script>
+    <!-- <script src="app.js"></script> -->
+    <script src="appRefactored.js"></script>
+
 </body>
 </html>
