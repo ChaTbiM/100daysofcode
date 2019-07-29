@@ -41,20 +41,50 @@
 // Another solution with prototypal inheritance
 // Object.create()
 
-const elfFunctions = {
-    attack(){
-        return ("attack with " + this.weapon);
+// const elfFunctions = {
+//     attack(){
+//         return ("attack with " + this.weapon);
+//     }
+// };
+
+// function createElf(name,weapon){
+//     let newElf = Object.create(elfFunctions);
+//     newElf.name = name;
+//     newElf.weapon = weapon;
+
+//     return newElf;
+// }
+
+// const Orwell = createElf("Orwell","Arrows");
+// const Peter = createElf("Peter", "Stones");
+
+
+
+// Prototypal inheritance
+let dragon = {
+    name:"Tanya",
+    fire:true,
+    fight(){
+        return 5
+    },
+    sing(){
+        if(this.fire){
+
+            return `I am ${this.name}, the breather of fire`
+        }
     }
-};
+} 
 
-function createElf(name,weapon){
-    let newElf = Object.create(elfFunctions);
-    newElf.name = name;
-    newElf.weapon = weapon;
-
-    return newElf;
+let lizard = {
+    name:"Kiki",
+    fight(){
+        return 1
+    }
 }
 
-const Orwell = createElf("Orwell","Arrows");
-const Peter = createElf("Peter", "Stones");
+// const signLizard = dragon.sing.bind(lizard);
+lizard.__proto__ = dragon;
 
+dragon.__proto__.dance = function(){
+    return "justa Dance !";
+}
