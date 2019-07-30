@@ -184,3 +184,30 @@ const p5 = {
     }
 }
 
+// Inheritance with Es6
+
+class Character {
+    constructor(name,weapon){
+        this.name = name;
+        this.weapon = weapon;
+    }
+
+    attack(){
+        return "attack with " + this.weapon;
+    }
+}
+
+class Elf extends Character{
+   
+    constructor(name,weapon,type){
+       
+        super(name,weapon);
+        this.type = type;
+        
+    }
+    sayHi(){
+        return " Hi I am " + this.type;
+    }
+}
+
+const fasco = new Elf("fasco","spoon","pet Elf");
