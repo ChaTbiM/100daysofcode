@@ -60,31 +60,54 @@
 
 
 
-// Prototypal inheritance
-let dragon = {
-    name:"Tanya",
-    fire:true,
-    fight(){
-        return 5
-    },
-    sing(){
-        if(this.fire){
+// Prototypal inheritance with __proto__
+// let dragon = {
+//     name:"Tanya",
+//     fire:true,
+//     fight(){
+//         return 5
+//     },
+//     sing(){
+//         if(this.fire){
 
-            return `I am ${this.name}, the breather of fire`
-        }
-    }
-} 
+//             return `I am ${this.name}, the breather of fire`
+//         }
+//     }
+// } 
 
-let lizard = {
-    name:"Kiki",
-    fight(){
-        return 1
-    }
+// let lizard = {
+//     name:"Kiki",
+//     fight(){
+//         return 1
+//     }
+// }
+
+// // const signLizard = dragon.sing.bind(lizard);
+// lizard.__proto__ = dragon;
+
+// dragon.__proto__.dance = function(){
+//     return "justa Dance !";
+// }
+
+
+// Constructor function 
+function Elf(name,weapon){
+    this.name = name;
+    this.weapon = weapon;
+
+    let a = 1997; // this variable is not created in the instantiated objects
 }
 
-// const signLizard = dragon.sing.bind(lizard);
-lizard.__proto__ = dragon;
-
-dragon.__proto__.dance = function(){
-    return "justa Dance !";
+Elf.prototype.attack = function(){
+    return "attack with " + this.weapon;
 }
+
+const peter = new Elf("Peter","Stones");
+const sam = new Elf("Sam","Bow");
+
+// other naive way to do constructor functions
+const Elf1 = new Function("name","weapon",`
+this.name = name;
+this.weapon = weapon`);
+
+const sara = new Elf1("sara","arrows");
