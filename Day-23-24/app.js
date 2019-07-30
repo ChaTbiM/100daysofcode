@@ -197,6 +197,8 @@ class Character {
     }
 }
 
+const normal = new Character('normal','nothing')
+
 class Elf extends Character{
    
     constructor(name,weapon,type){
@@ -211,3 +213,16 @@ class Elf extends Character{
 }
 
 const fasco = new Elf("fasco","spoon","pet Elf");
+
+class ElfMutated extends Elf {
+    constructor(name,weapon,type,color){
+        super(name,weapon,type);
+        this.color = color;
+    }
+
+    kill(){
+        return "I want to kill every Elf";
+    }
+}
+
+const fisco = new ElfMutated('fisco','bair hands','dagnerous','pink');
