@@ -16,21 +16,27 @@
 <body>
 
     <header>
-        <h1>
-        <ul>
+        
+        <!-- <ul>
             <?php 
             
-                foreach($names as $name){
-                    echo "<li class=\"list__item\"> $name </li>";
-                }
+                // foreach($names as $name){
+                //     echo "<li class=\"list__item\"> $name </li>";
+                // }
             
             ?>
             <hr>
-            <?php foreach($names as $name) : ?>
-                <li><?= $name ?></li>
-            <?php endforeach; ?>
+            <?php //foreach($names as $name) : ?>
+                <li><?php //echo $name ?></li>
+            <?php //endforeach; ?>
+        <ul> -->
+
         <ul>
-        </h1>
+                    <?php foreach($me as 
+                    $key => $value) : ?>
+                    <li> <strong><?=$key; ?> :</strong> <?= $value ?></li>
+                <?php endforeach; ?>
+        </ul>
     </header>
 </body>
 </html>
