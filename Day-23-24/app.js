@@ -91,23 +91,39 @@
 
 
 // Constructor function 
-function Elf(name,weapon){
-    this.name = name;
-    this.weapon = weapon;
+// function Elf(name,weapon){
+//     this.name = name;
+//     this.weapon = weapon;
 
-    let a = 1997; // this variable is not created in the instantiated objects
+//     let a = 1997; // this variable is not created in the instantiated objects
+// }
+
+// Elf.prototype.attack = function(){
+//     return "attack with " + this.weapon;
+// }
+
+// const peter = new Elf("Peter","Stones");
+// const sam = new Elf("Sam","Bow");
+
+// // other naive way to do constructor functions
+// const Elf1 = new Function("name","weapon",`
+// this.name = name;
+// this.weapon = weapon`);
+
+// const sara = new Elf1("sara","arrows");
+
+
+// Es6 classes 
+
+class Elf {
+    constructor(name,weapon){
+        this.name = name;
+        this.weapon = weapon;
+    }
+
+    attack(){
+        return "attack with " +this.weapon;
+    }
 }
 
-Elf.prototype.attack = function(){
-    return "attack with " + this.weapon;
-}
-
-const peter = new Elf("Peter","Stones");
-const sam = new Elf("Sam","Bow");
-
-// other naive way to do constructor functions
-const Elf1 = new Function("name","weapon",`
-this.name = name;
-this.weapon = weapon`);
-
-const sara = new Elf1("sara","arrows");
+const peter = new Elf("peter" ,"Bow");
