@@ -115,15 +115,72 @@
 
 // Es6 classes 
 
-class Elf {
-    constructor(name,weapon){
+// class Elf {
+//     constructor(name,weapon){
+//         this.name = name;
+//         this.weapon = weapon;
+//     }
+
+//     attack(){
+//         return "attack with " +this.weapon;
+//     }
+// }
+
+// const peter = new Elf("peter" ,"Bow");
+
+// This context 
+
+// implicit binding
+const person1 = {
+    name:"Mustapha",
+    sayHi(){
+        console.log("Hi my Name is " + this.name);
+    }
+}
+// new binding this
+
+// function Person (name){
+//     this.name = name;
+
+// }
+
+// Person.prototype.sayHi = function (){
+//     return "Hi My Name is " + this.name;
+// }
+
+class Person{
+    constructor(name){
         this.name = name;
-        this.weapon = weapon;
     }
 
-    attack(){
-        return "attack with " +this.weapon;
+    sayHi(){
+        return "My name is " + this.name;
     }
 }
 
-const peter = new Elf("peter" ,"Bow");
+const person2 = new Person("Mus dev");
+
+
+// explicit binding
+const p3 = new Person("Jack");
+const p4 = new Person("Sam");
+
+p3.alert = function(){
+    return "I am " + this.name + " , Hands up";
+}
+
+p4.alert = p3.alert.bind(p4);
+// console.log(p4.alert())
+
+
+// arrow functions (lexical scoping) < whenever we write arrow function will be the context
+
+const p5 = {
+    name:"Mus Dev V2.0",
+    sayWhat(){
+        return (()=>{
+            console.log(this.name)
+        })()
+    }
+}
+
