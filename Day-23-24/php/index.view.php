@@ -17,8 +17,19 @@
 
     <header>
         <h1>
-        
-            <?=  $greeting ?>
+        <ul>
+            <?php 
+            
+                foreach($names as $name){
+                    echo "<li class=\"list__item\"> $name </li>";
+                }
+            
+            ?>
+            <hr>
+            <?php foreach($names as $name) : ?>
+                <li><?= $name ?></li>
+            <?php endforeach; ?>
+        <ul>
         </h1>
     </header>
 </body>
