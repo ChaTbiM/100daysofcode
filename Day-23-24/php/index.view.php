@@ -14,9 +14,11 @@
     </style>
 </head>
 <body>
+
     <header>
         <h1>
-            <?= "hi ". htmlspecialchars($_GET['name']);?>
+        
+            <?=  $greeting ?>
         </h1>
     </header>
 </body>
