@@ -1,15 +1,12 @@
 <?php
 
+require 'functions.php';
 
-// associative arrays
-// $task = [
-//     'title' => 'learning php',
-//     'due' => 'today',
-//     'assigned to' => 'me',
-//     'completed' => false,
-// ];
+$animals = ['dog','cat'] ;
 
 
 
 
-// require 'index.view.php';
+dd(['horse','lion','car?']);
+
+?>
