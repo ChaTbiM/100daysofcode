@@ -2,14 +2,12 @@
 
 require 'Task.php';
 require '..\..\functions.php';
+require '..\database\Connection.php';
 
 
-$servername = "127.0.0.1";
-$username = "root";
-$password = "";
-$dbname = "mytodoapp";
 
-$pdo = connectToDatabase();
+
+$pdo = Connection::make();
 
 
 

@@ -7,17 +7,6 @@ function dd($data){
     echo "</pre>";
 }
 
-function connectToDatabase(){
-
-  
-   
-    try {
-     return new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-    } catch (PDOException $e){
-        throw new \PDOException($e->getMessage(), (int)$e->getCode());
-    
-    }
-}
 
 function fetchAll($pdo){
     
