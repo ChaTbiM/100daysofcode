@@ -9,7 +9,7 @@
 <body>
     
     <ul>
-        <?php foreach($result as $task) : ?>
+        <?php foreach($tasks as $task) : ?>
             <?php if($task->completed) : ?>
                 <strike> <li><?= $task->description; ?></li></strike>
             <?php else : ?>
