@@ -8,5 +8,16 @@
 </head>
 <body>
     
+    <ul>
+        <?php foreach($result as $task) : ?>
+            <?php if($task->completed) : ?>
+                <strike> <li><?= $task->description; ?></li></strike>
+            <?php else : ?>
+                <li><?= $task->description; ?></li>
+            <?php endif; ?>
+        <?php endforeach; ?>    
+
+    </ul>
+
 </body>
 </html>
