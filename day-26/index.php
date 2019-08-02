@@ -1,41 +1,41 @@
 <?php 
 
-// // require 'Task.php';
+// require 'Task.php';
 
-// require 'core/bootstrap.php';
-// // comment
+require 'core/bootstrap.php';
+// comment
 
-// $router = new Router;
+$router = new Router;
 
-// // require 'routes.php';
-
-
-// // require $router->direct($uri);
+// require 'routes.php';
 
 
-// require Router::load('routes.php')
-//         ->direct(Request::uri());
-
-class Post {
-    public $title; 
-    public $author;
-    public $published;
-
-    public function __construct($title,$author,$published){
-        $this->title = $title;
-        $this->published = $published;
-        $this->author = $author;
-    }
-}
+// require $router->direct($uri);
 
 
-$posts = [
-    new Post("My First Post","ME",true),
-    new Post("My Second Post","me",true),
-    new Post("My Third Post","YOU",true),
-    new Post("My Fourth Post","you",false)
+require Router::load('routes.php')
+        ->direct(Request::uri(),Request::method());
 
-];
+// class Post {
+//     public $title; 
+//     public $author;
+//     public $published;
+
+//     public function __construct($title,$author,$published){
+//         $this->title = $title;
+//         $this->published = $published;
+//         $this->author = $author;
+//     }
+// }
+
+
+// $posts = [
+//     new Post("My First Post","ME",true),
+//     new Post("My Second Post","me",true),
+//     new Post("My Third Post","YOU",true),
+//     new Post("My Fourth Post","you",false)
+
+// ];
 
 // array_filter
 // array_map
@@ -59,4 +59,4 @@ $posts = [
 
 // $titles = array_column($posts,'title','author');
 
-die(var_dump($titles['My First Post']));
+// die(var_dump($titles['My First Post']));
