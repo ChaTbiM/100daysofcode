@@ -4,6 +4,7 @@ $app = [];
 
 $app['config'] = require 'config.php';
 
+//comment
 
 
 require 'core/Router.php';
