@@ -1,4 +1,3 @@
-
 <?php
 
 header('Access-Control-Allow-Origin: *');
@@ -12,4 +11,18 @@ include_once '../../models/Posts.php';
 $database = new Database();
 $db = $database->connect();
 
-print_r($db);
+// instantiate blog post object
+$post = new Post($db);
+
+$results = $post->read();
+
+$rows = $results->rowCount();
+
+if ($rows) {
+    global $results;
+    foreach ($results as $post) {
+        print_r($post);
+    }
+} else {
+    echo 'there is no posts -_-';
+}

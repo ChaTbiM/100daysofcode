@@ -1,6 +1,6 @@
 <?php
 
-class Posts
+class Post
 {
     private $conn;
     private $table = 'posts';
@@ -33,7 +33,8 @@ class Posts
         LEFT JOIN 
             categories c ON p.category_id = c.id
         ORDER BY
-            p.created_at DESC';
+            p.created_at DESC
+            ';
 
         //PRepare statement
         $stmt = $this->conn->prepare($query);
@@ -44,4 +45,4 @@ class Posts
     }
 }
 
-?> ;
+?> 
