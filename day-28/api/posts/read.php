@@ -20,9 +20,26 @@ $rows = $results->rowCount();
 
 if ($rows) {
     global $results;
-    foreach ($results as $post) {
-        print_r($post);
+
+    $posts_arr = [];
+    $posts_arr['data'] = [];
+
+    while ($row = $results->fetch(PDO::FETCH_ASSOC)) {
+        extract($row);
+
+        $post_item = [
+            'id' => $id,
+            'title' => $title,
+            'author' => $author,
+            'body' => html_entity_decode($body),
+            'category_id' => $category_id,
+            'category_name' => $category_name,
+        ];
+
+        array_push($posts_arr['data'], $post_item);
     }
+
+    echo json_encode($posts_arr);
 } else {
-    echo 'there is no posts -_-';
+    echo json_encode(['message' => 'no Post Found']);
 }
