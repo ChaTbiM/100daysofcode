@@ -32,9 +32,19 @@ class Post
         return $this->title;
     }
 
+    public function set_title($title)
+    {
+        $this->title = $title;
+    }
+
     public function get_body()
     {
         return $this->body;
+    }
+
+    public function set_body($body)
+    {
+        $this->body = $body;
     }
 
     public function get_author()
@@ -42,14 +52,53 @@ class Post
         return $this->author;
     }
 
+    public function set_author($author)
+    {
+        $this->author = $author;
+    }
+
     public function get_category_id()
     {
         return $this->category_id;
     }
 
+    public function set_category_id($category_id)
+    {
+        $this->category_id = $category_id;
+    }
+
     public function get_category_name()
     {
         return $this->category_name;
+    }
+
+    public function create()
+    {
+        $query = 'INSERT INTO '.$this->table.'
+            (`title`,`author`,`body`,`category_id`) value(:title,:author,:body,:category_id)
+        ';
+
+        //Prepare statement
+        $stmt = $this->conn->prepare($query);
+
+        //Clean data
+        $this->title = htmlspecialchars(strip_tags($this->title));
+        $this->author = htmlspecialchars(strip_tags($this->author));
+        $this->body = htmlspecialchars(strip_tags($this->body));
+        $this->category_id = htmlspecialchars(strip_tags($this->category_id));
+
+        // Bind ID
+        $stmt->bindParam(':title', $this->title);
+        $stmt->bindParam(':author', $this->author);
+        $stmt->bindParam(':body', $this->body);
+        $stmt->bindParam(':category_id', $this->category_id);
+
+        if ($stmt->execute()) {
+            return true;
+        }
+        printf("Error: %s.\n ", $stmt->error);
+
+        return false;
     }
 
     public function read()
@@ -111,6 +160,68 @@ class Post
         $this->body = $row['body'];
         $this->category_id = $row['category_id'];
         $this->category_name = $row['category_name'];
+    }
+
+    public function update()
+    {
+        $query = 'UPDATE '.$this->table.'
+          SET
+            `title` = :title,
+            `author` = :author,
+            `body` = :body,
+            `category_id` = :category_id
+          WHERE 
+            `id` = :id
+        ';
+
+        //Prepare statement
+        $stmt = $this->conn->prepare($query);
+
+        //Clean data
+        $this->id = htmlspecialchars(strip_tags($this->id));
+        $this->title = htmlspecialchars(strip_tags($this->title));
+        $this->author = htmlspecialchars(strip_tags($this->author));
+        $this->body = htmlspecialchars(strip_tags($this->body));
+        $this->category_id = htmlspecialchars(strip_tags($this->category_id));
+
+        // Bind ID
+        $stmt->bindParam(':title', $this->title);
+        $stmt->bindParam(':author', $this->author);
+        $stmt->bindParam(':body', $this->body);
+        $stmt->bindParam(':category_id', $this->category_id);
+        $stmt->bindParam(':id', $this->id);
+
+        if ($stmt->execute()) {
+            return true;
+        }
+
+        printf("Error: %s.\n ", $stmt->error);
+
+        return false;
+    }
+
+    public function Delete()
+    {
+        $query = 'DELETE FROM '.$this->table.'
+            WHERE id = :id
+        ';
+
+        //Prepare statement
+        $stmt = $this->conn->prepare($query);
+
+        //Clean data
+        $this->id = htmlspecialchars(strip_tags($this->id));
+
+        //Bind Data
+        $stmt->bindParam(':id', $this->id);
+
+        if ($stmt->execute()) {
+            return true;
+        }
+
+        printf("Error: %s.\n ", $stmt->error);
+
+        return false;
     }
 }
 
