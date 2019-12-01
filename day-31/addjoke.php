@@ -1,23 +1,12 @@
 <?php
 
 if (isset($_POST['joketext'])) {
-    $host = 'localhost';
-    $dbname = 'joker';
-    $username = 'root';
-    $password = '';
-
-    $table = 'jokes';
-
     try {
-        $pdo = new PDO('mysql:host='.$host.';dbname='.$dbname.';charset=utf8', $username, $password);
+        include __DIR__.'/includes/DatabaseConnection.php';
 
-        $query = 'INSERT INTO '.$table.' (`joketext`,`jokedate`) VALUES(:joketext, CURDATE())';
+        include __DIR__.'/includes/DatabaseFunctions.php';
 
-        $stmt = $pdo->prepare($query);
-
-        $stmt->bindValue(':joketext', $_POST['joketext']);
-
-        $stmt->execute();
+        insertJoke($pdo, $_POST['joketext'], 1);
         header('location: jokes.php');
     } catch (PDOException $e) {
         $output = 'Connection Error <br>'

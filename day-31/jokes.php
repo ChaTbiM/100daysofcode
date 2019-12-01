@@ -1,25 +1,14 @@
 <?php
 
-$host = 'localhost';
-$dbname = 'joker';
-$username = 'root';
-$password = '';
-
 // Connection
 try {
-    $pdo = new PDO('mysql:host='.$host.';dbname='.$dbname.';charset=utf8', $username, $password);
-
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    include __DIR__.'/includes/DatabaseConnection.php';
 
     // $query = 'CREATE TABLE `jokes`(id int NOT NULL AUTO_INCREMENT PRIMARY KEY,joketext TEXT ,jokedate DATE NOT NULL )DEFAULT CHARACTER SET utf8 ENGINE=InnoDB';
-    $query = 'SELECT `joketext` FROM `jokes`';
-    $res = $pdo->query($query);
-
-    $jokes = [];
-    while ($row = $res->fetch()) {
-        // $jokes[] = $row['joketext'];
-        array_push($jokes, $row['joketext']);
-    }
+    $query = 'SELECT `jokes`.`id` , `joketext` , `name`,`email` , `author_id` 
+    FROM `jokes` INNER JOIN `authors` 
+    ON `author_id`= `authors`.id ';
+    $jokes = $pdo->query($query);
 
     $title = 'Joke list';
 
@@ -32,6 +21,3 @@ try {
 }
 
 include __DIR__.'/templates/layout.html.php';
-// Preparing Statements and Binding Parameters
-
-// Executing The Query
